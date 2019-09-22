@@ -1,0 +1,28 @@
+/*==========   esto es para  crear  las  entidades a partir de una tabla  ya existentes  en mysql====*/
+php bin/console doctrine:database:create //  crear  la  base de datos
+
+php bin/console doctrine:mapping:convert --from-database yml ./src/Entity   //crear las  entidades  en yml
+
+php bin/console doctrine:mapping:import App\\Entity annotation --path=src/Entity   //con   anotacion sin get y set
+
+php bin/console make:entity --regenerate  App  //entidad  con   get  y set
+
+========================
+
+/**  crear  la entidad para  cera la tabla ala ora de migrar     */
+
+php bin/console make:entity  Usuario //crear  la entidad sin existir  la tabla en bd   para crearla desde el framework
+ 
+despues creo  los private de  los  atributos de  la entidad,
+
+
+
+php bin/console make:entity --regenerate  App  //entidad  con   get  y set
+
+
+php bin /console doctrine:migrations:diff  //crear la migracion  en php   para despu
+
+
+ bin/console doctrine:migrations:migrate  //  migro la  entidad  "creo la tabla  en bd "
+
+php bin/console make:entity --regenerate  App\entity\Animales   //  regenerar una entidad especifica
